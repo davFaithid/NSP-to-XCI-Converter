@@ -1,14 +1,20 @@
 @ECHO OFF
 
 :TOP_INIT
+::--------------------------------------------------------------
+::davFaithid's Personal touches 
+::--------------------------------------------------------------
+set author=davFaithid
+set version=0.02
+set converter=NSP to XCI Converter
 set "prog_dir=%~dp0"
 set bat_name=NSCB
-set "ofile_name=NSCB_options.cmd"
-Title NSP to XCI Converter v0.01. -- by davFaithid
+set "ofile_name=options.cmd"
+Title %converter% v%version% by %author%
 ::-----------------------------------------------------
 ::EDIT THIS VARIABLE TO LINK OTHER OPTION FILE
 ::-----------------------------------------------------
-set op_file=config\NSCB_options.cmd
+set op_file=%~dp0config\options.cmd
 
 ::-----------------------------------------------------
 ::COPY OPTIONS FROM OPTION FILE
@@ -28,7 +34,9 @@ set "manual_intro=%manual_intro%"
 REM set "trn_skip=%trn_skip%"
 REM set "updx_skip=%updx_skip%"
 REM set "ngx_skip=%ngx_skip%"
-
+set author=%author%
+set version=%version%
+set converter=%converter%
 REM PROGRAMS
 set "nut=%nut%"
 set "xci_lib=%xci_lib%"
@@ -941,12 +949,12 @@ exit /B
 
 :program_logo
 
-ECHO      _______     ___________________    __           ____  ____________  .___ 
-ECHO      \      \   /   _____/\______   \ _/  ]_  ____   \   \/  /\_   ___ \ [   ]
-ECHO      /   !   \  \_____  \  [     ___/ \   __\/  _ \   \     / /    \  \/ [   ]
-ECHO     /    !    \ /        \ [    ]     [  ]  (  (_) )  /     \ \     \____[   ]
-ECHO     \____!__  //_______  / [____]     [__]   \____/  /___/\  \ \______  /[___]
-ECHO             \/         \/                                  \_/        \/      
+ECHO      _______     ___________________    __          ____  ____________  .___ 
+ECHO      \      \   /   _____/\______   \ _/  ^|_ ____   \   \/  /\_   ___ \ ^|   ^|
+ECHO      /   ^|   \  \_____  \  ^|     ___/ \   __/  _ \   \     / /    \  \/ ^|   ^|
+ECHO     /    ^|    \ /        \ ^|    ^|     ^|  ^| (  ^<_^> )  /     \ \     \____^|   ^|
+ECHO     \____^|__  //_______  / ^|____^|     ^|__^|  \____/  /___/\  \ \______  /^|___^|
+ECHO             \/         \/                                 \_/        \/      
 ECHO -------------------------------------------------------------------------------------
 ECHO                         NINTENDO SWITCH NSP TO XCI CONVERTER
 ECHO -------------------------------------------------------------------------------------
@@ -972,16 +980,34 @@ exit /B
 
 :thumbup
 echo.
-echo    /@
-echo    \ \
-echo  ___\ \
-echo (__O)  \
-echo (____@) \
-echo (____@)  \
-echo (__o)_    \
-echo       \    \
+echo       *^/*                         
+echo      #%%(^/*                     %%.             
+echo      %%^&%%((,                  (#^&%%.            
+echo     ##%%##(((                 ##(#%%%%^/            
+echo    (%%%%##%%#(^/(               *########            
+echo   ,%%^&%%%%###((*            ,*^/##%%#((#%%%%            
+echo   *#^&(#(#(**,  ..,,,.,,,**^/(##(^/(%%%%%%            
+echo   .#^&%%##%%%%^/**^/*,**,,,,**,**^/^/^/(##(%%^&           
+echo    ##%%#%%%%^/^/^/,*****,,,*,,,**^/*^/^/^/###%%#(           
+echo    ^/#%%##^/(******^/*^/**,*,***,****((%%##             
+echo    ^/#^/..**^/*^/,*****,,*******,**(#(^/             
+echo    (^&^&(%%***^/***^/***,****,,*****.   %%              
+echo    *(*@@@(*(^/((^/*^/*.***,*,^/**^/*.,^/,(              
+echo    ^/(@@@@^&(^/^/^/^/^/(^/^/*,**^/*^/^/,**^/,%%@@@,             
+echo    ^/(^/^&@@%%#**^/^/^/^/*^/******^/^/^/,***^&@@^&             
+echo   .#^/^/#((#^/(^/^/^/(^/^/,*,****^/^/^/***.^/*#*             
+echo   #^/(%%%%%%%%%%%%#(#%%#^/,.,,,...,^/((**^/*(^/^/             
+echo   (^/^/##((#%%^&%%^/*,*****^/*,.. ,^/^/*(^/^/^/**            
+echo   ^/((*((#%%%%%%#^/,,*######((#  .#%%#(^/^/^/*             
+echo   ^/^/#^/((###((^/^/^/*^/@@^&%%%%@%%,...###(^/,,**            
+echo  ^/^/((###%%%%^/^/^/(###^&@@^&((*,..^/((^/^/*^/***^/         
+echo  *^/^/^/((%%%%^&((##%%%%%%%%^&^&%%#((*,*(#((**,.,*^/         
+echo  ^/(^/^/(##%%%%%%####%%#%%%%%%^&^&%%##(^/^/^/##(^/**,.***          
+echo  (##(((##%%%%%%%%%%%%^&@@(^/*^&%%#(^/(((^/^/^/*,*,**          
+echo  #%%##(#######%%##%%^&@@^&^&%%(((((((((^/^/^/((^/*^/          
+echo  ###%%%%%%%%%%%%####(#####(((((((((((##(^/(^/^/** 
 echo.
-echo HOPE YOU HAVE A FUN TIME
+echo Bye! Thank you for using the converter!
 exit /B
 
 :getname
@@ -1008,6 +1034,7 @@ exit /B
 
 :makezip
 echo Making zip for %ziptarget%
+call :zipper-logo
 echo.
 %pycommand% "%nut%" %buffer% -o "%w_folder%\zip" --zip_combo "%ziptarget%"
 %pycommand% "%nut%" -o "%w_folder%\zip" --NSP_c_KeyBlock "%ziptarget%"
@@ -1104,5 +1131,15 @@ goto salida
 :salida
 exit
 
+:zipper-logo
+@echo off
+echo Zipping...
+echo -----------
+echo ^|    ^|    ^|
+echo ^|    ^|    ^|
+echo ^|   /_\   ^|
+echo -----------
+echo.
+exit /B
 
 

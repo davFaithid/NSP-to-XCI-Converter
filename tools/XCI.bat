@@ -36,7 +36,7 @@ type nul>testfile>"%w_folder%\secure\0"
 :nodummy
 endlocal
 echo -------------------------------
-echo Building xci file with hacbuild 
+echo Building xci...
 echo -------------------------------
 ECHO NOTE:
 echo With files bigger than 4Gb it'll take more time proportionally than with smaller files.
